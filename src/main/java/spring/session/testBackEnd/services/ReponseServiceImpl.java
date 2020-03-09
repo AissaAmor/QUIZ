@@ -16,19 +16,32 @@ public class ReponseServiceImpl implements ReponseService {
 
 	@PersistenceContext
 	EntityManager em;
-	
+
 	@Autowired
 	ReponseRepository reponseRepo;
-
-
-
-	@Override
-	public void AjoutRep(Reponse reponse) {
-		reponseRepo.save(reponse);
-	}
 
 	@Override
 	public List<Reponse> getAll() {
 		return reponseRepo.findAll();
+
 	}
+
+	@Override
+	public Reponse getId_reponses(Integer id) {
+		return reponseRepo.getOne(id);
+
+	}
+
+	@Override
+	public void AjouterReponses(Reponse Reponse) {
+		reponseRepo.save(Reponse);
+
+	}
+
+	@Override
+	public void DeleteReponses(Reponse Reponse) {
+		em.remove(Reponse);
+
+	}
+
 }

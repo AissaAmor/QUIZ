@@ -7,7 +7,11 @@ import spring.session.testBackEnd.entities.User;
 
 public interface ReponseService {
 
-	public void AjoutRep(Reponse reponse);
-
-	public List <Reponse> getAll();
+    public List<Reponse>getAll(); 
+	
+	public Reponse getId_reponses(Integer id);
+	
+	public void  AjouterReponses(Reponse Reponse);
+	
+	public void DeleteReponses(Reponse Reponse);
 }

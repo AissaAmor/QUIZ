@@ -49,8 +49,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 			// We don't need CSRF for this example
 			httpSecurity.csrf().disable()
 	// dont authenticate this particular request
-					.authorizeRequests().antMatchers("/coach/authenticate", "/coach/add",
-							"/coach/forget-password", "/coach/reset-password/**","/coach/update-password/** ","/evaluation/edit")
+					.authorizeRequests().antMatchers("/user/authenticate","/user/add","/Questions/add","/quiz/add","quiz/calculQuiz","/quiz/getQuiz/**","/Questions/calcul","Questions/delete/**","/Reponse/addReponse","/Reponse/all","/Reponse/delete/**")
 					.permitAll().
 	// all other requests need to be authenticated
 

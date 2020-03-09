@@ -47,6 +47,9 @@ public class User {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+	
+	public User() {
+	}
 	public User(int id_User, String nom, String prenom, @NotNull String username, String password) {
 		super();
 		Id_User = id_User;
@@ -54,13 +57,5 @@ public class User {
 		this.prenom = prenom;
 		this.username = username;
 		this.password = password;
-	}
-	@Override
-	public String toString() {
-		return "User [Id_User=" + Id_User + ", nom=" + nom + ", prenom=" + prenom + ", username=" + username
-				+ ", password=" + password + "]";
-	}
-	
-	
-	
+	}	
 }

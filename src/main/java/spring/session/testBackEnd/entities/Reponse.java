@@ -1,58 +1,59 @@
 package spring.session.testBackEnd.entities;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
 public class Reponse {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id_Reponse;
+	private int id;
 	private String reponse;
-	private String correct;
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "id_Question")
+    private Boolean correct;
+	
+	@ManyToOne(cascade = CascadeType.ALL) 
+    @JoinColumn(name = "question_id" )
 	public Question question ;
-	public int getId_Reponse() {
-		return id_Reponse;
+
+	public Reponse() {
+		
 	}
-	public void setId_Reponse(int id_Reponse) {
-		this.id_Reponse = id_Reponse;
-	}
+
 	public String getReponse() {
 		return reponse;
 	}
+
 	public void setReponse(String reponse) {
 		this.reponse = reponse;
 	}
-	public String getCorrect() {
+
+	public Boolean getCorrect() {
 		return correct;
 	}
-	public void setCorrect(String correct) {
+
+	public void setCorrect(Boolean correct) {
 		this.correct = correct;
 	}
+
+	@JsonIgnore
 	public Question getQuestion() {
 		return question;
 	}
+
 	public void setQuestion(Question question) {
 		this.question = question;
 	}
-	public Reponse(int id_Reponse, String reponse, String correct, Question question) {
-		super();
-		this.id_Reponse = id_Reponse;
-		this.reponse = reponse;
-		this.correct = correct;
-		this.question = question;
+
+	public int getId() {
+		return id;
 	}
-	@Override
-	public String toString() {
-		return "Reponse [id_Reponse=" + id_Reponse + ", reponse=" + reponse + ", correct=" + correct + ", question="
-				+ question + "]";
-	}
-	
-	
+
 }
